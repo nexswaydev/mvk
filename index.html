@@ -1,0 +1,3030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MVK Realtors - Premium Rental Homes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4a6bff;
+            --primary-light: #6a85ff;
+            --secondary-color: #ff7e5f;
+            --dark-color: #2d3748;
+            --light-color: #f7fafc;
+            --success-color: #48bb78;
+            --text-color: #4a5568;
+            --text-light: #718096;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+            --section-padding: 100px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            transition: var(--transition);
+        }
+
+        .header-scrolled {
+            padding: 0.5rem 2rem;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-icon {
+            margin-right: 10px;
+            font-size: 1.8rem;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to top, #fff, transparent);
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 2rem;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 1s ease;
+        }
+
+        .hero-content.animate {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: var(--primary-light);
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .btn:hover::before {
+            width: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(74, 107, 255, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary-color);
+        }
+
+        .btn-secondary::before {
+            background-color: #ff9275;
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 1.5rem;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+
+        /* Property Types Section */
+        .section {
+            padding: var(--section-padding) 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .section.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .properties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .property-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .property-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .property-img {
+            height: 220px;
+            width: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .property-card:hover .property-img {
+            transform: scale(1.05);
+        }
+
+        .property-info {
+            padding: 1.5rem;
+        }
+
+        .property-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .price {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .price i {
+            margin-right: 5px;
+        }
+
+        .location {
+            display: flex;
+            align-items: center;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .location i {
+            margin-right: 0.5rem;
+        }
+
+        .amenities {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .amenity {
+            background-color: #edf2f7;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        /* Video Section */
+        .video-section {
+            background-color: #f8f9fa;
+            padding: var(--section-padding) 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .video-section.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .video-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-container video {
+            width: 100%;
+            display: block;
+            border-radius: 12px;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.3);
+            opacity: 1;
+            transition: var(--transition);
+        }
+
+        .video-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .play-btn {
+            width: 80px;
+            height: 80px;
+            background-color: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-bottom: 1rem;
+        }
+
+        .play-btn:hover {
+            transform: scale(1.1);
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .video-overlay h3 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .video-overlay p {
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 500px;
+        }
+
+        /* Partners Ribbon */
+        .partners-ribbon {
+    background-color: #e9f0f5; /* Changed from #f8f9fa to a light blue for better visibility */
+    padding: 3rem 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.partners-container {
+    display: flex;
+    align-items: center;
+    animation: scroll 30s linear infinite;
+    width: max-content; /* Allow container to be as wide as needed */
+}
+
+.partner-logo {
+    height: 60px;
+    margin: 0 20px; /* Reduced margin for tighter spacing */
+    opacity: 0.9; /* Increased from 0.7 for better visibility */
+    transition: var(--transition);
+    /* Removed filter: grayscale(100%); */
+}
+
+.partner-logo:hover {
+    /* Removed filter: grayscale(0); */
+    opacity: 1;
+}
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%); /* Move exactly half the width */
+            }
+        }
+
+        /* Booking Form */
+        .booking-form {
+            background-color: white;
+            padding: 3rem;
+            border-radius: 12px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(74, 107, 255, 0.1);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 2.5rem;
+            border-radius: 12px;
+            max-width: 900px;
+            width: 90%;
+            position: relative;
+            animation: modalopen 0.5s;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes modalopen {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--text-light);
+            transition: var(--transition);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .close-modal:hover {
+            background-color: #f1f5f9;
+            color: var(--dark-color);
+        }
+
+        .modal-header {
+            margin-bottom: 2rem;
+        }
+
+        .modal-header h3 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-body {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .modal-img {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .modal-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .modal-img:hover img {
+            transform: scale(1.05);
+        }
+
+        .modal-details {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .detail-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .detail-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+
+        .furnishing-options {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .furnishing-option {
+            padding: 0.8rem 1.5rem;
+            background-color: #edf2f7;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+            text-align: center;
+            flex: 1;
+        }
+
+        .furnishing-option.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .furnishing-details {
+            display: none;
+            padding: 1rem;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            margin-top: 1rem;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .furnishing-details.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .size-options {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .size-option {
+            padding: 0.8rem 1.5rem;
+            background-color: #edf2f7;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+            text-align: center;
+            flex: 1;
+        }
+
+        .size-option.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-img {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .about-img:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark-color);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-item h4 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark-color);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-right: 1rem;
+            margin-top: 0.3rem;
+            width: 40px;
+            height: 40px;
+            background-color: #edf2f7;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-map {
+            flex: 1;
+            min-width: 300px;
+            height: 400px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+            z-index: 100;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: left;
+        }
+
+        .footer-col h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #cbd5e0;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #cbd5e0;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+            z-index: 3000;
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            animation: modalopen 0.5s;
+        }
+
+        .success-message i {
+            font-size: 4rem;
+            color: var(--success-color);
+            margin-bottom: 1rem;
+        }
+
+        .success-message h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--success-color);
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+        }
+        
+        /* Chatbot Styles */
+        .chatbot-container {
+            position: fixed;
+            bottom: 100px; /* Changed from 20px to 100px to position it above the WhatsApp button */
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+        
+        .chatbot-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+        
+        .chatbot-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+        
+        .chatbot-window {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 350px;
+            height: 500px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px) scale(0.9);
+            pointer-events: none;
+        }
+        
+        .chatbot-window.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            pointer-events: all;
+        }
+        
+        .chatbot-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .chatbot-header h3 {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+        
+        .close-chat {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+        
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .message {
+            max-width: 80%;
+            padding: 12px 15px;
+            border-radius: 18px;
+            font-size: 0.95rem;
+            line-height: 1.4;
+            position: relative;
+        }
+        
+        .bot-message {
+            background-color: #f0f2f5;
+            color: var(--dark-color);
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+        }
+        
+        .user-message {
+            background-color: var(--primary-color);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+        }
+        
+        .message-image {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-top: 8px;
+        }
+        
+        .typing-indicator {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 12px 15px;
+            background-color: #f0f2f5;
+            border-radius: 18px;
+            border-bottom-left-radius: 5px;
+            align-self: flex-start;
+            max-width: 80%;
+        }
+        
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #606060;
+            border-radius: 50%;
+            animation: typing-animation 1.4s infinite ease-in-out;
+        }
+        
+        .typing-dot:nth-child(1) {
+            animation-delay: 0s;
+        }
+        
+        .typing-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        .typing-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        
+        @keyframes typing-animation {
+            0%, 60%, 100% {
+                transform: translateY(0);
+                opacity: 0.6;
+            }
+            30% {
+                transform: translateY(-5px);
+                opacity: 1;
+            }
+        }
+        
+        .chat-input-container {
+            padding: 15px;
+            border-top: 1px solid #e6e6e6;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .chat-input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 1px solid #e6e6e6;
+            border-radius: 25px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+        
+        .chat-input:focus {
+            border-color: var(--primary-color);
+        }
+        
+        .send-button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .send-button:hover {
+            background-color: var(--primary-light);
+        }
+        
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: var(--secondary-color);
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.7rem;
+            font-weight: bold;
+            opacity: 0;
+            transform: scale(0);
+            transition: all 0.3s ease;
+        }
+        
+        .notification-badge.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            :root {
+                --section-padding: 80px;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --section-padding: 60px;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem 0;
+                transition: var(--transition);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 1.5rem 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .booking-form {
+                padding: 2rem 1rem;
+            }
+
+            .modal-body {
+                flex-direction: column;
+            }
+
+            .modal-content {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            :root {
+                --section-padding: 50px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .btn {
+                padding: 0.7rem 1.5rem;
+            }
+            
+            .furnishing-options, .size-options {
+                flex-direction: column;
+            }
+        }
+        /* Gallery Popup Styles */
+    .gallery-popup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        z-index: 3000;
+        overflow: hidden;
+    }
+    
+    .gallery-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .gallery-content {
+        position: relative;
+        width: 80%;
+        max-width: 1000px;
+        height: 80%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .gallery-image-container {
+        flex: 1;
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+        background-color: #000;
+    }
+    
+    .gallery-image {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+    
+    .gallery-description {
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        border-radius: 8px;
+        margin-top: 15px;
+        max-width: 1000px;
+        width: 100%;
+    }
+    
+    .gallery-description h4 {
+        color: var(--primary-color);
+        margin-bottom: 8px;
+        font-size: 1.2rem;
+    }
+    
+    .gallery-description p {
+        color: var(--text-color);
+        margin: 0;
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+    
+    .gallery-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 50px;
+        height: 50px;
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .gallery-nav:hover {
+        background-color: rgba(255, 255, 255, 0.4);
+    }
+    
+    .gallery-prev {
+        left: -80px;
+    }
+    
+    .gallery-next {
+        right: -80px;
+    }
+    
+    .gallery-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .gallery-close:hover {
+        background-color: rgba(255, 255, 255, 0.4);
+    }
+    
+    .gallery-thumbnails {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 15px;
+        flex-wrap: wrap;
+    }
+    
+    .gallery-thumbnail {
+        width: 60px;
+        height: 60px;
+        border-radius: 5px;
+        overflow: hidden;
+        cursor: pointer;
+        border: 2px solid transparent;
+        transition: all 0.3s ease;
+    }
+    
+    .gallery-thumbnail.active {
+        border-color: var(--primary-color);
+        transform: scale(1.1);
+    }
+    
+    .gallery-thumbnail img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .view-gallery-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background-color: var(--primary-light);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 50px;
+        font-size: 0.9rem;
+        margin-top: 15px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .view-gallery-btn:hover {
+        background-color: var(--primary-color);
+        transform: translateY(-2px);
+    }
+    
+    .modal-img {
+        position: relative;
+    }
+    
+    .image-count-badge {
+        position: absolute;
+        bottom: 15px;
+        right: 15px;
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <nav class="navbar">
+            <a href="#" class="logo">
+                <i class="fas fa-home logo-icon"></i>
+                MVK <span>Realtors</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#listings">Listings</a></li>
+                <li><a href="#video">Interior</a></li>
+                <li><a href="#booking">Book a Slot</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Discover Your Dream Rental Home</h1>
+            <p>Premium studio, 1BHK, 2BHK & 3BHK apartments in the best locations across the city. Experience quality living with MVK Realtors.</p>
+            <a href="#listings" class="btn">Explore Properties</a>
+        </div>
+        <div class="scroll-down" id="scrollDown">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Property Types Section -->
+    <section class="section" id="listings">
+        <div class="section-title">
+            <h2>Our Property Listings</h2>
+            <p>Browse through our carefully curated selection of rental properties to find your ideal home</p>
+        </div>
+        <div class="properties-grid">
+            <!-- Studio Flat -->
+            <div class="property-card">
+                <img src="Studio/livingroom.jpeg" alt="Studio Flat" class="property-img">
+                <div class="property-info">
+                    <h3>Studio Apartments</h3>
+                    <div class="price"><i class="fas fa-rupee-sign"></i> 12,000 - 18,000/month</div>
+                    <div class="location">
+                        <i class="fas fa-map-marker-alt"></i> Urbanrise Revolution One
+                    </div>
+                    <div class="amenities">
+                        <span class="amenity">Furnished</span>
+                        <span class="amenity">WiFi</span>
+                        <span class="amenity">Security</span>
+                    </div>
+                    <button class="btn view-details" data-property="studio">View Details</button>
+                </div>
+            </div>
+
+            <!-- 1BHK -->
+            <div class="property-card">
+                <img src="1BHK/room1.jpeg" alt="1BHK Apartment" class="property-img">
+                <div class="property-info">
+                    <h3>1BHK Apartments</h3>
+                    <div class="price"><i class="fas fa-rupee-sign"></i> 15,000 - 20,000/month</div>
+                    <div class="location">
+                        <i class="fas fa-map-marker-alt"></i> Urbanrise Revolution One
+                    </div>
+                    <div class="amenities">
+                        <span class="amenity">Semi-Furnished</span>
+                        <span class="amenity">Parking</span>
+                        <span class="amenity">Lift</span>
+                    </div>
+                    <button class="btn view-details" data-property="1bhk">View Details</button>
+                </div>
+            </div>
+
+            <!-- 2BHK -->
+            <div class="property-card">
+                <img src="2BHK/livingroom.jpeg" alt="2BHK Apartment" class="property-img">
+                <div class="property-info">
+                    <h3>2BHK Apartments</h3>
+                    <div class="price"><i class="fas fa-rupee-sign"></i> 20,000 - 27,000/month</div>
+                    <div class="location">
+                        <i class="fas fa-map-marker-alt"></i> Urbanrise Revolution One
+                    </div>
+                    <div class="amenities">
+                        <span class="amenity">Fully Furnished</span>
+                        <span class="amenity">24/7 Security</span>
+                        <span class="amenity">Play Area</span>
+                    </div>
+                    <button class="btn view-details" data-property="2bhk">View Details</button>
+                </div>
+            </div>
+
+            <!-- 3BHK -->
+            <div class="property-card">
+                <img src="3BHK/livingroom.jpeg" alt="3BHK Apartment" class="property-img">
+                <div class="property-info">
+                    <h3>3BHK Apartments</h3>
+                    <div class="price"><i class="fas fa-rupee-sign"></i> 27,000 - 35,000/month</div>
+                    <div class="location">
+                        <i class="fas fa-map-marker-alt"></i> Urbanrise Revolution One
+                    </div>
+                    <div class="amenities">
+                        <span class="amenity">Luxury Furnishing</span>
+                        <span class="amenity">Gym</span>
+                        <span class="amenity">Swimming Pool</span>
+                    </div>
+                    <button class="btn view-details" data-property="3bhk">View Details</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section" id="video">
+        <div class="section-title">
+            <h2>Virtual Interior Tour</h2>
+            <p>Take a look at the interior design made by us.</p>
+        </div>
+        <div class="video-container">
+            <video id="propertyVideo" poster="1BHK\kitchen.jpeg">
+                <source src="Interior Video\Interior.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-overlay" id="videoOverlay">
+                <div class="play-btn" id="playBtn">
+                    <i class="fas fa-play"></i>
+                </div>
+                <h3>Premium Interior designs</h3>
+                <p>Experience the quality and designs we made.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Ribbon -->
+    <section class="partners-ribbon">
+        <div class="partners-container">
+            <!-- First set of logos -->
+            <img src="Partners/Akshaya-logo.png" alt="Akshaya" class="partner-logo">
+        <img src="Partners/Casagrand-Logo1.webp" alt="Casagrand" class="partner-logo">
+        <img src="Partners/Emami.png" alt="Emami" class="partner-logo">
+        <img src="Partners/Xs real.png" alt="XS Real" class="partner-logo">
+        <img src="Partners/appasamy-logo.svg" alt="Appasamy" class="partner-logo">
+        <img src="Partners/logo (1).webp" alt="Partner" class="partner-logo">
+        <img src="Partners/logo.webp" alt="Partner" class="partner-logo">
+        <img src="Partners/urban.webp" alt="Urban" class="partner-logo">
+        <img src="Partners/web-logo-copy-150x212.png" alt="Partner" class="partner-logo">
+            
+            <!-- Duplicate set of logos for seamless looping -->
+            <img src="Partners/Akshaya-logo.png" alt="Akshaya" class="partner-logo">
+        <img src="Partners/Casagrand-Logo1.webp" alt="Casagrand" class="partner-logo">
+        <img src="Partners/Emami.png" alt="Emami" class="partner-logo">
+        <img src="Partners/Xs real.png" alt="XS Real" class="partner-logo">
+        <img src="Partners/appasamy-logo.svg" alt="Appasamy" class="partner-logo">
+        <img src="Partners/logo (1).webp" alt="Partner" class="partner-logo">
+        <img src="Partners/logo.webp" alt="Partner" class="partner-logo">
+        <img src="Partners/urban.webp" alt="Urban" class="partner-logo">
+        <img src="Partners/web-logo-copy-150x212.png" alt="Partner" class="partner-logo">
+        </div>
+    </section>
+
+    <!-- Booking Form Section -->
+    <section class="section" id="booking">
+        <div class="section-title">
+            <h2>Book a Viewing Slot</h2>
+            <p>Schedule a visit to your preferred property by filling out the form below</p>
+        </div>
+        <form id="bookingForm" class="booking-form">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="whatsapp">WhatsApp Number</label>
+                <input type="tel" id="whatsapp" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="property">Property Interested In</label>
+                <select id="property" class="form-control" required>
+                    <option value="">Select Property Type</option>
+                    <option value="Studio Apartment">Studio Apartment</option>
+                    <option value="1BHK Apartment">1BHK Apartment</option>
+                    <option value="2BHK Apartment">2BHK Apartment</option>
+                    <option value="3BHK Apartment">3BHK Apartment</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="date">Preferred Date</label>
+                <input type="date" id="date" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="time">Preferred Time</label>
+                <input type="time" id="time" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-secondary">Send via WhatsApp</button>
+        </form>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="section-title">
+            <h2>About MVK Realtors</h2>
+            <p>Your trusted partner in finding the perfect rental home</p>
+        </div>
+        <div class="about-content">
+            <div class="about-img">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="About MVK Realtors">
+            </div>
+            <div class="about-text">
+                <h3>Why Choose Us</h3>
+                <p>MVK Realtors has been helping individuals and families find their ideal rental homes for over a decade. Our team of experienced professionals is dedicated to providing personalized service and ensuring a smooth rental experience.</p>
+                <p>We carefully vet all our properties to ensure they meet high standards of quality, safety, and comfort. Our extensive network allows us to offer a wide range of options to suit every budget and preference.</p>
+                <div class="stats">
+                    <div class="stat-item">
+                        <h4>2+</h4>
+                        <p>Years Experience</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>180+</h4>
+                        <p>Happy Clients</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>100+</h4>
+                        <p>Properties Listed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="section-title">
+            <h2>Contact Us</h2>
+            <p>Get in touch with our team for any inquiries or assistance</p>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Our Contact Details</h3>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div>
+                        <h4>Phone</h4>
+                        <p>+6369591941  </p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <div>
+                        <h4>WhatsApp</h4>
+                        <p>+6369591941  </p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <h4>Email</h4>
+                        <p>mvkrealtors@gmail.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div>
+                        <h4>Working Hours</h4>
+                        <p>Monday - Saturday: 9:00 AM - 7:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248756.1313116749!2d80.04386065343976!3d13.047473316843668!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265ea4f7d3361%3A0x6e61a70b6863d433!2sChennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1748268759949!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>MVK Realtors</h4>
+                <p>Your trusted partner for premium rental homes in the city. Quality living spaces tailored to your needs.</p>
+                <div class="social-links">
+                    <!--<a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>-->
+                </div>
+            </div>
+        <div class="copyright">
+            <p>&copy;MVK Realtors. Developed by NexSway</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/6369591941" id="whatsapp-quick-btn" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <!-- Chatbot Container -->
+    <div class="chatbot-container">
+        <div class="chatbot-button">
+            <i class="fas fa-comment"></i>
+            <div class="notification-badge">1</div>
+        </div>
+        <div class="chatbot-window">
+            <div class="chatbot-header">
+                <h3>MVK Realtors Assistant</h3>
+                <button class="close-chat">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chat-messages">
+                <!-- Messages will be added here dynamically -->
+            </div>
+            <div class="chat-input-container">
+                <input type="text" class="chat-input" placeholder="Type your message...">
+                <button class="send-button">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Property Detail Modals -->
+    <!-- Studio Apartment Modal -->
+    <div class="modal" id="studioModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <h3>Studio Apartments</h3>
+                <div class="price"><i class="fas fa-rupee-sign"></i> <span id="studioPrice">12,000 - 18,000</span>/month</div>
+            </div>
+            <div class="modal-body">
+                <div class="modal-img">
+                    <img src="Studio\livingroom.jpeg" alt="Studio Apartment">
+                    <div class="image-count-badge">
+                        <i class="fas fa-images"></i> 5 photos
+                    </div>
+                    <div class="view-gallery-btn" data-property="studio">
+                        <i class="fas fa-th"></i> View All Photos
+                    </div>
+                </div>
+                <div class="modal-details">
+                    <div class="detail-item">
+                        <h4>Description</h4>
+                        <p>Compact and efficient living spaces perfect for individuals or couples. Our studio apartments maximize space with smart design elements.</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Furnishing Options</h4>
+                        <div class="furnishing-options">
+                            <div class="furnishing-option active" data-furnishing="semi" data-price="12,000 - 15,000">
+                                Semi-Furnished
+                            </div>
+                            <div class="furnishing-option" data-furnishing="full" data-price="16,000 - 19,000">
+                                Fully Furnished
+                            </div>
+                        </div>
+                        <div class="furnishing-details active" id="semiStudioDetails">
+                            <p><strong>Includes:</strong> Basic furniture (bed, wardrobe, study table), kitchen essentials (stove, fridge), curtains, lighting fixtures.</p>
+                            <p><strong>Price Range:</strong> ₹12,000 - ₹15,000/month depending on location and amenities.</p>
+                        </div>
+                        <div class="furnishing-details" id="fullStudioDetails">
+                            <p><strong>Includes:</strong> All semi-furnished items plus sofa, dining set, TV, AC, microwave, washing machine, and complete home decor.</p>
+                            <p><strong>Price Range:</strong> ₹15,000 - ₹18,000/month depending on location and amenities.</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Amenities</h4>
+                        <ul>
+                            <li>Gated community with CCTV surveillance</li>
+                            <li>Swimming pool</li>
+                            <li>Children's play area</li>
+                            <li>24/7 water supply</li>
+                            <li>Gym</li>
+                            <li>Garden/terrace</li
+                            <li>Clubhouse</li>
+                            <li>Covered parking</li>
+                            <li>Security system</li>
+                        </ul>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Available Locations</h4>
+                        <p>City center, near business districts, and university areas.</p>
+                    </div>
+                    <button class="btn book-from-modal" data-property="Studio Apartment">Book Viewing</button>
+                    <button class="btn view-gallery-btn" data-property="studio">
+                        <i class="fas fa-images"></i> View Gallery
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 1BHK Modal -->
+    <div class="modal" id="1bhkModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <h3>1BHK Apartments</h3>
+                <div class="price"><i class="fas fa-rupee-sign"></i> <span id="1bhkPrice">18,000 - 25,000</span>/month</div>
+            </div>
+            <div class="modal-body">
+                <div class="modal-img">
+                    <img src="1BHK\kitchen.jpeg" alt="1BHK Apartment">
+                    <div class="image-count-badge">
+                        <i class="fas fa-images"></i> 6 photos
+                    </div>
+                    <div class="view-gallery-btn" data-property="1bhk">
+                        <i class="fas fa-th"></i> View All Photos
+                    </div>
+                </div>
+                <div class="modal-details">
+                    <div class="detail-item">
+                        <h4>Description</h4>
+                        <p>Perfect for small families or working professionals who need a separate bedroom. Our 1BHK apartments offer comfortable living with privacy.</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Furnishing Options</h4>
+                        <div class="furnishing-options">
+                            <div class="furnishing-option active" data-furnishing="semi" data-price="18,000 - 21,000">
+                                Semi-Furnished
+                            </div>
+                            <div class="furnishing-option" data-furnishing="full" data-price="22,000 - 25,000">
+                                Fully Furnished
+                            </div>
+                        </div>
+                        <div class="furnishing-details active" id="semi1bhkDetails">
+                            <p><strong>Includes:</strong> Bedroom set (bed, wardrobe, side tables), living room basics (sofa, coffee table), kitchen setup (stove, fridge, cabinets).</p>
+                            <p><strong>Price Range:</strong> ₹18,000 - ₹21,000/month depending on location and amenities.</p>
+                        </div>
+                        <div class="furnishing-details" id="full1bhkDetails">
+                            <p><strong>Includes:</strong> All semi-furnished items plus dining set, TV, AC, washing machine, microwave, complete home decor, and additional storage solutions.</p>
+                            <p><strong>Price Range:</strong> ₹22,000 - ₹25,000/month depending on location and amenities.</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Amenities</h4>
+                        <ul>
+                            <li>Gated community with CCTV surveillance</li>
+                            <li>Swimming pool</li>
+                            <li>Children's play area</li>
+                            <li>24/7 water supply</li>
+                            <li>Gym</li>
+                            <li>Garden/terrace</li
+                            <li>Clubhouse</li>
+                            <li>Covered parking</li>
+                            <li>Security system</li>
+                        </ul>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Available Locations</h4>
+                        <p>Residential neighborhoods with good connectivity to business hubs.</p>
+                    </div>
+                    <button class="btn book-from-modal" data-property="1BHK Apartment">Book Viewing</button>
+                    <button class="btn view-gallery-btn" data-property="1bhk">
+                        <i class="fas fa-images"></i> View Gallery
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2BHK Modal -->
+    <div class="modal" id="2bhkModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <h3>2BHK Apartments</h3>
+                <div class="price"><i class="fas fa-rupee-sign"></i> <span id="2bhkPrice">25,000 - 40,000</span>/month</div>
+            </div>
+            <div class="modal-body">
+                <div class="modal-img">
+                    <img src="2BHK\livingroom.jpeg" alt="2BHK Apartment">
+                    <div class="image-count-badge">
+                        <i class="fas fa-images"></i> 8 photos
+                    </div>
+                    <div class="view-gallery-btn" data-property="2bhk">
+                        <i class="fas fa-th"></i> View All Photos
+                    </div>
+                </div>
+                <div class="modal-details">
+                    <div class="detail-item">
+                        <h4>Description</h4>
+                        <p>Ideal for small families or professionals sharing space. Our 2BHK apartments come in different sizes to suit your needs.</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Size Options</h4>
+                        <div class="size-options">
+                            <div class="size-option active" data-size="compact" data-sqft="800" data-price="25,000 - 30,000">
+                                Compact (667 sqft)
+                            </div>
+                            <div class="size-option" data-size="regular" data-sqft="1000" data-price="30,000 - 35,000">
+                                Regular (747 sqft)
+                            </div>
+                            <div class="size-option" data-size="large" data-sqft="1200" data-price="35,000 - 40,000">
+                                Large (888 sqft)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Furnishing Options</h4>
+                        <div class="furnishing-options">
+                            <div class="furnishing-option active" data-furnishing="semi" data-price="25,000 - 30,000">
+                                Semi-Furnished
+                            </div>
+                            <div class="furnishing-option" data-furnishing="full" data-price="28,000 - 33,000">
+                                Fully Furnished
+                            </div>
+                        </div>
+                        <div class="furnishing-details active" id="semi2bhkDetails">
+                            <p><strong>Includes:</strong> Bedroom sets for both rooms, living room furniture (sofa, coffee table, TV unit), dining table, kitchen setup with appliances.</p>
+                            <p><strong>Price Range:</strong> <span id="semi2bhkPrice">₹25,000 - ₹30,000</span>/month for compact size.</p>
+                        </div>
+                        <div class="furnishing-details" id="full2bhkDetails">
+                            <p><strong>Includes:</strong> All semi-furnished items plus ACs in bedrooms, washing machine, microwave, complete home decor, additional storage, and sometimes balcony furniture.</p>
+                            <p><strong>Price Range:</strong> <span id="full2bhkPrice">₹28,000 - ₹33,000</span>/month for compact size.</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Amenities</h4>
+                        <ul>
+                            <li>Gated community with CCTV surveillance</li>
+                            <li>Swimming pool</li>
+                            <li>Children's play area</li>
+                            <li>24/7 water supply</li>
+                            <li>Gym</li>
+                            <li>Garden/terrace</li
+                            <li>Clubhouse</li>
+                            <li>Covered parking</li>
+                            <li>Security system</li>
+                        </ul>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Available Locations</h4>
+                        <p>Family-friendly neighborhoods near schools and markets.</p>
+                    </div>
+                    <button class="btn book-from-modal" data-property="2BHK Apartment">Book Viewing</button>
+                    <button class="btn view-gallery-btn" data-property="2bhk">
+                        <i class="fas fa-images"></i> View Gallery
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3BHK Modal -->
+    <div class="modal" id="3bhkModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <h3>3BHK Apartments</h3>
+                <div class="price"><i class="fas fa-rupee-sign"></i> <span id="3bhkPrice">40,000 - 60,000</span>/month</div>
+            </div>
+            <div class="modal-body">
+                <div class="modal-img">
+                    <img src="3BHK\livingroom.jpeg" alt="3BHK Apartment">
+                    <div class="image-count-badge">
+                        <i class="fas fa-images"></i> 10 photos
+                    </div>
+                    <div class="view-gallery-btn" data-property="3bhk">
+                        <i class="fas fa-th"></i> View All Photos
+                    </div>
+                </div>
+                <div class="modal-details">
+                    <div class="detail-item">
+                        <h4>Description</h4>
+                        <p>Spacious homes for larger families or professionals who need extra space. Our 3BHK apartments offer luxury and comfort.</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Furnishing Options</h4>
+                        <div class="furnishing-options">
+                            <div class="furnishing-option active" data-furnishing="semi" data-price="40,000 - 48,000">
+                                Semi-Furnished
+                            </div>
+                            <div class="furnishing-option" data-furnishing="full" data-price="48,000 - 60,000">
+                                Fully Furnished
+                            </div>
+                        </div>
+                        <div class="furnishing-details active" id="semi3bhkDetails">
+                            <p><strong>Includes:</strong> Complete bedroom sets for all rooms, living room furniture (sofa set, center table, entertainment unit), dining set, complete kitchen with appliances.</p>
+                            <p><strong>Price Range:</strong> ₹40,000 - ₹48,000/month depending on location and amenities.</p>
+                        </div>
+                        <div class="furnishing-details" id="full3bhkDetails">
+                            <p><strong>Includes:</strong> All semi-furnished items plus premium furniture, ACs in all bedrooms, washing machine, microwave, dishwasher, complete home automation in some properties, and luxury decor.</p>
+                            <p><strong>Price Range:</strong> ₹48,000 - ₹60,000/month depending on location and amenities.</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Amenities</h4>
+                        <ul>
+                            <li>Gated community with CCTV surveillance</li>
+                            <li>Swimming pool</li>
+                            <li>Children's play area</li>
+                            <li>24/7 water supply</li>
+                            <li>Gym</li>
+                            <li>Garden/terrace</li
+                            <li>Clubhouse</li>
+                            <li>Covered parking</li>
+                            <li>Security system</li>
+                        </ul>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Available Locations</h4>
+                        <p>Premium residential complexes in upscale neighborhoods.</p>
+                    </div>
+                    <button class="btn book-from-modal" data-property="3BHK Apartment">Book Viewing</button>
+                    <button class="btn view-gallery-btn" data-property="3bhk">
+                        <i class="fas fa-images"></i> View Gallery
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Message -->
+    <div class="overlay" id="overlay"></div>
+    <div class="success-message" id="successMessage">
+        <i class="fas fa-check-circle"></i>
+        <h3>Booking Successful!</h3>
+        <p>Thank you for booking a viewing slot with MVK Realtors. We've sent the details to your WhatsApp and email.</p>
+        <p>Our representative will contact you shortly to confirm your appointment.</p>
+        <button class="btn" id="closeSuccess">Close</button>
+    </div>
+    
+    <!-- Gallery Popup -->
+    <div class="gallery-popup" id="galleryPopup">
+        <div class="gallery-container">
+            <div class="gallery-content">
+                <div class="gallery-image-container">
+                    <img src="" alt="Property Image" class="gallery-image" id="galleryImage">
+                </div>
+                <div class="gallery-description">
+                    <h4 id="galleryTitle">Living Room</h4>
+                    <p id="galleryDesc">Spacious living room with modern furniture and natural lighting.</p>
+                </div>
+                <div class="gallery-thumbnails" id="galleryThumbnails">
+                    <!-- Thumbnails will be added dynamically -->
+                </div>
+            </div>
+            <div class="gallery-nav gallery-prev">
+                <i class="fas fa-chevron-left"></i>
+            </div>
+            <div class="gallery-nav gallery-next">
+                <i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="gallery-close">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Property Gallery Data
+const propertyGalleries = {
+    'studio': [
+        {
+            image: 'Studio/livingroom.jpeg',
+            title: 'Studio Living Room',
+            description: 'Bright and airy living space with modern furnishings and natural lighting, perfect for relaxation and entertainment.'
+        },
+        {
+            image: 'Studio/livingroom2.jpeg',
+            title: 'Living Area View',
+            description: 'Alternative view of the living area showing the spacious layout and contemporary design elements.'
+        },
+        {
+            image: 'Studio/cupboard.jpeg',
+            title: 'Built-in Storage',
+            description: 'Efficient built-in cupboard providing ample storage space while maintaining the studio\'s sleek aesthetic.'
+        },
+        {
+            image: 'Studio/wasing machine.jpeg',
+            title: 'Laundry Facility',
+            description: 'In-unit washing machine for convenient laundry management, saving time and adding convenience to studio living.'
+        }
+    ],
+    '1bhk': [
+        {
+            image: '1BHK/WhatsApp Image 2025-05-20 at 23.57.17.jpeg',
+            title: '1BHK Overview',
+            description: 'Spacious 1-bedroom apartment featuring modern design elements and comfortable living spaces.'
+        },
+        {
+            image: '1BHK/room1.jpeg',
+            title: 'Bedroom',
+            description: 'Comfortable bedroom with ample space for a queen-sized bed, side tables, and personal items.'
+        },
+        {
+            image: '1BHK/kitchen.jpeg',
+            title: 'Modern Kitchen',
+            description: 'Fully-equipped kitchen with modern appliances, cabinetry, and counter space for meal preparation.'
+        },
+        {
+            image: '1BHK/bathroom.jpeg',
+            title: 'Bathroom',
+            description: 'Clean and functional bathroom with modern fixtures, shower area, and adequate storage.'
+        },
+        {
+            image: '1BHK/cupbord.jpeg',
+            title: 'Main Storage',
+            description: 'Built-in cupboard providing generous storage space for clothing and personal belongings.'
+        },
+        {
+            image: '1BHK/cupboard2.jpeg',
+            title: 'Additional Storage',
+            description: 'Secondary storage solution offering extra space for household items and seasonal belongings.'
+        }
+    ],
+    '2bhk': [
+        {
+            image: '2BHK/livingroom.jpeg',
+            title: 'Living Room',
+            description: 'Spacious living room with comfortable seating, perfect for family gatherings and entertaining guests.'
+        },
+        {
+            image: '2BHK/kitchen.jpeg',
+            title: 'Kitchen',
+            description: 'Modern kitchen with ample counter space, storage cabinets, and essential appliances for convenient cooking.'
+        },
+        {
+            image: '2BHK/room.jpeg',
+            title: 'Master Bedroom',
+            description: 'Comfortable master bedroom with space for a king-sized bed and additional furniture pieces.'
+        },
+        {
+            image: '2BHK/room1.jpeg',
+            title: 'Second Bedroom',
+            description: 'Well-designed second bedroom ideal for children, guests, or conversion to a home office space.'
+        }
+    ],
+    '3bhk': [
+        {
+            image: '3BHK/livingroom.jpeg',
+            title: 'Living Room',
+            description: 'Expansive living room with premium furnishing options and ample space for family activities and entertaining.'
+        },
+        {
+            image: '3BHK/kitchen.jpeg',
+            title: 'Gourmet Kitchen',
+            description: 'Spacious kitchen with modern appliances, extensive cabinetry, and premium countertops for culinary enthusiasts.'
+        },
+        {
+            image: '3BHK/room1.jpeg',
+            title: 'Master Bedroom',
+            description: 'Luxurious master bedroom with space for king-sized bed, side tables, and additional furniture pieces.'
+        },
+        {
+            image: '3BHK/room2.jpeg',
+            title: 'Second Bedroom',
+            description: 'Comfortable second bedroom with ample space for a queen-sized bed and personal storage.'
+        },
+        {
+            image: '3BHK/bathroom.jpeg',
+            title: 'Modern Bathroom',
+            description: 'Elegantly designed bathroom with premium fixtures, shower area, and contemporary styling.'
+        },
+        {
+            image: '3BHK/cupboard.jpeg',
+            title: 'Built-in Wardrobe',
+            description: 'Spacious built-in wardrobe providing extensive storage for clothing and personal items.'
+        }
+    ]
+};
+        
+        // Gallery Popup Functionality
+        const galleryPopup = document.getElementById('galleryPopup');
+        const galleryImage = document.getElementById('galleryImage');
+        const galleryTitle = document.getElementById('galleryTitle');
+        const galleryDesc = document.getElementById('galleryDesc');
+        const galleryThumbnails = document.getElementById('galleryThumbnails');
+        const galleryPrev = document.querySelector('.gallery-prev');
+        const galleryNext = document.querySelector('.gallery-next');
+        const galleryClose = document.querySelector('.gallery-close');
+        
+        let currentGallery = [];
+        let currentIndex = 0;
+        
+        // Open gallery when clicking on view gallery button
+        document.querySelectorAll('.view-gallery-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const propertyType = this.getAttribute('data-property');
+                openGallery(propertyType);
+            });
+        });
+        
+        // Function to open gallery
+        function openGallery(propertyType) {
+            currentGallery = propertyGalleries[propertyType];
+            currentIndex = 0;
+            
+            // Create thumbnails
+            galleryThumbnails.innerHTML = '';
+            currentGallery.forEach((item, index) => {
+                const thumbnail = document.createElement('div');
+                thumbnail.classList.add('gallery-thumbnail');
+                if (index === 0) thumbnail.classList.add('active');
+                
+                const img = document.createElement('img');
+                img.src = item.image;
+                img.alt = item.title;
+                
+                thumbnail.appendChild(img);
+                thumbnail.addEventListener('click', () => {
+                    currentIndex = index;
+                    updateGallery();
+                });
+                
+                galleryThumbnails.appendChild(thumbnail);
+            });
+            
+            // Show first image
+            updateGallery();
+            
+            // Show gallery popup
+            galleryPopup.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        // Update gallery content
+        function updateGallery() {
+            const item = currentGallery[currentIndex];
+            
+            galleryImage.src = item.image;
+            galleryTitle.textContent = item.title;
+            galleryDesc.textContent = item.description;
+            
+            // Update active thumbnail
+            document.querySelectorAll('.gallery-thumbnail').forEach((thumb, index) => {
+                if (index === currentIndex) {
+                    thumb.classList.add('active');
+                } else {
+                    thumb.classList.remove('active');
+                }
+            });
+        }
+        
+        // Previous image
+        galleryPrev.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+            updateGallery();
+        });
+        
+        // Next image
+        galleryNext.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % currentGallery.length;
+            updateGallery();
+        });
+        
+        // Close gallery
+        galleryClose.addEventListener('click', () => {
+            galleryPopup.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Close gallery when clicking outside
+        galleryPopup.addEventListener('click', (e) => {
+            if (e.target === galleryPopup) {
+                galleryPopup.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Keyboard navigation for gallery
+        document.addEventListener('keydown', (e) => {
+            if (galleryPopup.style.display === 'block') {
+                if (e.key === 'ArrowLeft') {
+                    currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+                    updateGallery();
+                } else if (e.key === 'ArrowRight') {
+                    currentIndex = (currentIndex + 1) % currentGallery.length;
+                    updateGallery();
+                } else if (e.key === 'Escape') {
+                    galleryPopup.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            }
+        });
+        
+        // Mobile Navigation
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.innerHTML = navLinks.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Scroll down button
+        document.getElementById('scrollDown').addEventListener('click', () => {
+            document.getElementById('listings').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Animate sections on scroll
+        function animateOnScroll() {
+            const sections = document.querySelectorAll('.section, .video-section');
+            const windowHeight = window.innerHeight;
+            
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const sectionVisible = 150;
+                
+                if (sectionTop < windowHeight - sectionVisible) {
+                    section.classList.add('animate');
+                }
+            });
+        }
+
+        // Initial animation for hero
+        window.addEventListener('load', () => {
+            document.querySelector('.hero-content').classList.add('animate');
+            animateOnScroll();
+        });
+
+        // Scroll event listener
+        window.addEventListener('scroll', () => {
+            // Header scroll effect
+            if (window.scrollY > 50) {
+                document.getElementById('header').classList.add('header-scrolled');
+            } else {
+                document.getElementById('header').classList.remove('header-scrolled');
+            }
+            
+            // Animate sections
+            animateOnScroll();
+        });
+
+        // Video Section
+        const video = document.getElementById('propertyVideo');
+        const videoOverlay = document.getElementById('videoOverlay');
+        const playBtn = document.getElementById('playBtn');
+
+        playBtn.addEventListener('click', () => {
+            videoOverlay.classList.add('hidden');
+            video.play();
+            video.setAttribute('controls', 'true');
+        });
+
+        video.addEventListener('pause', () => {
+            if (video.currentTime > 0 && !video.ended) {
+                videoOverlay.classList.remove('hidden');
+            }
+        });
+
+        // Property Modals
+        const viewDetailBtns = document.querySelectorAll('.view-details');
+        const propertyModals = {
+            'studio': document.getElementById('studioModal'),
+            '1bhk': document.getElementById('1bhkModal'),
+            '2bhk': document.getElementById('2bhkModal'),
+            '3bhk': document.getElementById('3bhkModal')
+        };
+        const closeModalBtns = document.querySelectorAll('.close-modal');
+        const bookFromModalBtns = document.querySelectorAll('.book-from-modal');
+
+        // Open modal when clicking View Details
+        viewDetailBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const propertyType = btn.getAttribute('data-property');
+                propertyModals[propertyType].style.display = 'block';
+                document.body.style.overflow = 'hidden';
+                updateWhatsAppButton();
+            });
+        });
+
+        // Close modal when clicking X
+        closeModalBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.closest('.modal').style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            Object.values(propertyModals).forEach(modal => {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+
+        // Book from modal button
+        bookFromModalBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const propertyType = btn.getAttribute('data-property');
+                document.getElementById('property').value = propertyType;
+                btn.closest('.modal').style.display = 'none';
+                document.body.style.overflow = 'auto';
+                document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Furnishing options
+        document.querySelectorAll('.furnishing-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const container = this.closest('.furnishing-options');
+                const modal = this.closest('.modal');
+                const propertyType = modal.id.replace('Modal', '');
+                
+                // Update active state
+                container.querySelector('.furnishing-option.active').classList.remove('active');
+                this.classList.add('active');
+                
+                // Update price if data-price attribute exists
+                if (this.hasAttribute('data-price')) {
+                    document.getElementById(`${propertyType}Price`).textContent = this.getAttribute('data-price');
+                }
+                
+                // Show corresponding details
+                const furnishingType = this.getAttribute('data-furnishing');
+                const detailsContainer = this.closest('.detail-item');
+                
+                detailsContainer.querySelectorAll('.furnishing-details').forEach(detail => {
+                    detail.classList.remove('active');
+                });
+                
+                document.getElementById(`${furnishingType}${propertyType}Details`).classList.add('active');
+                
+                // Special handling for 2BHK size + furnishing combination
+                if (propertyType === '2bhk') {
+                    update2BHKPrice();
+                }
+            });
+        });
+
+        // 2BHK size options with price updates
+        document.querySelectorAll('.size-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const container = this.closest('.size-options');
+                container.querySelector('.size-option.active').classList.remove('active');
+                this.classList.add('active');
+                
+                // Update prices based on size and furnishing
+                update2BHKPrice();
+            });
+        });
+
+        function update2BHKPrice() {
+            const activeSize = document.querySelector('#2bhkModal .size-option.active');
+            const activeFurnishing = document.querySelector('#2bhkModal .furnishing-option.active');
+            const size = activeSize.getAttribute('data-size');
+            const sizeText = activeSize.textContent.trim(); // Get the display text of the size
+            const isFullyFurnished = activeFurnishing.getAttribute('data-furnishing') === 'full';
+            
+            let basePrice, furnishedPrice;
+            
+            switch(size) {
+                case 'compact':
+                    basePrice = '25,000 - 30,000';
+                    furnishedPrice = '28,000 - 33,000';
+                    break;
+                case 'regular':
+                    basePrice = '30,000 - 35,000';
+                    furnishedPrice = '33,000 - 38,000';
+                    break;
+                case 'large':
+                    basePrice = '35,000 - 40,000';
+                    furnishedPrice = '38,000 - 43,000';
+                    break;
+            }
+            
+            // Update main price display
+            document.getElementById('2bhkPrice').textContent = isFullyFurnished ? furnishedPrice : basePrice;
+            
+            // Update details section prices
+            const semiPriceElement = document.getElementById('semi2bhkPrice');
+            const fullPriceElement = document.getElementById('full2bhkPrice');
+            
+            semiPriceElement.textContent = `₹${basePrice}`;
+            fullPriceElement.textContent = `₹${furnishedPrice}`;
+            
+            // Update the text that mentions the size
+            const semiDetailsElement = document.getElementById('semi2bhkDetails');
+            const fullDetailsElement = document.getElementById('full2bhkDetails');
+            
+            // Find the price range paragraph and update the size text
+            const semiPriceParagraph = semiDetailsElement.querySelector('p:last-child');
+            const fullPriceParagraph = fullDetailsElement.querySelector('p:last-child');
+            
+            if (semiPriceParagraph) {
+                semiPriceParagraph.innerHTML = `<strong>Price Range:</strong> <span id="semi2bhkPrice">₹${basePrice}</span>/month for ${sizeText}.`;
+            }
+            
+            if (fullPriceParagraph) {
+                fullPriceParagraph.innerHTML = `<strong>Price Range:</strong> <span id="full2bhkPrice">₹${furnishedPrice}</span>/month for ${sizeText}.`;
+            }
+        }
+
+        // Property links in footer
+        const propertyLinks = document.querySelectorAll('.property-link');
+        propertyLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const propertyType = link.getAttribute('data-property');
+                propertyModals[propertyType].style.display = 'block';
+                document.body.style.overflow = 'hidden';
+                updateWhatsAppButton();
+            });
+        });
+
+        // Form submission
+        const bookingForm = document.getElementById('bookingForm');
+        const overlay = document.getElementById('overlay');
+        const successMessage = document.getElementById('successMessage');
+        const closeSuccess = document.getElementById('closeSuccess');
+
+        bookingForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const whatsapp = document.getElementById('whatsapp').value;
+            const email = document.getElementById('email').value;
+            const property = document.getElementById('property').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            
+            // Format date for display
+            const formattedDate = new Date(date).toLocaleDateString('en-IN', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+            
+            // Create WhatsApp message
+            const whatsappMessage = `🏠 *BOOKING REQUEST* 🏠\n\n*Property:* ${property}\n*Date:* ${formattedDate}\n*Time:* ${time}\n\n*Customer Details:*\n*Name:* ${name}\n*Phone:* ${phone}\n*WhatsApp:* ${whatsapp}\n*Email:* ${email}\n\nThank you for your interest in MVK Realtors properties!`;
+            
+            // Encode the message for URL
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            
+            // Show success message
+            overlay.style.display = 'block';
+            successMessage.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            
+            // Open WhatsApp with the message
+            // Replace with your actual business WhatsApp number
+            window.open(`https://wa.me/6369591941?text=${encodedMessage}`, '_blank');
+            
+            // Reset form
+            bookingForm.reset();
+        });
+        
+        // Close success message
+        closeSuccess.addEventListener('click', () => {
+            overlay.style.display = 'none';
+            successMessage.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Close success message when clicking overlay
+        overlay.addEventListener('click', () => {
+            overlay.style.display = 'none';
+            successMessage.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Auto-update WhatsApp chat button based on page content
+        function updateWhatsAppButton() {
+            const whatsappBtn = document.querySelector('.whatsapp-btn');
+            let message = "Hi MVK Realtors, I'm interested in your rental properties.";
+            
+            // Check if we're on a specific property modal
+            const activeModal = document.querySelector('.modal[style="display: block;"]');
+            if (activeModal) {
+                const propertyTitle = activeModal.querySelector('.modal-header h3').textContent;
+                const price = activeModal.querySelector('.price').textContent;
+                
+                // Check if furnishing option is selected
+                const activeFurnishing = activeModal.querySelector('.furnishing-option.active');
+                let furnishingType = '';
+                if (activeFurnishing) {
+                    furnishingType = activeFurnishing.textContent.trim();
+                }
+                
+                // Check if size option is selected (for 2BHK)
+                const activeSize = activeModal.querySelector('.size-option.active');
+                let sizeInfo = '';
+                if (activeSize) {
+                    sizeInfo = ` (${activeSize.textContent.trim()})`;
+                }
+                
+                message = `Hi MVK Realtors, I'm interested in your ${propertyTitle}${sizeInfo} ${furnishingType ? furnishingType + ' ' : ''}(${price}). Please share more details.`;
+            }
+            
+            const encodedMessage = encodeURIComponent(message);
+            whatsappBtn.href = `https://wa.me/6369591941?text=${encodedMessage}`;
+        }
+        
+        // Update WhatsApp button when modals are opened
+        viewDetailBtns.forEach(btn => {
+            btn.addEventListener('click', updateWhatsAppButton);
+        });
+        
+        // Initial update
+        updateWhatsAppButton();
+        
+        // Chatbot Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const chatbotButton = document.querySelector('.chatbot-button');
+            const chatbotWindow = document.querySelector('.chatbot-window');
+            const closeChat = document.querySelector('.close-chat');
+            const chatMessages = document.querySelector('.chat-messages');
+            const chatInput = document.querySelector('.chat-input');
+            const sendButton = document.querySelector('.send-button');
+            const notificationBadge = document.querySelector('.notification-badge');
+            
+            // Property data for the chatbot to reference
+            const propertyData = {
+                '1bhk': {
+                    name: '1 BHK Apartment',
+                    price: '₹15,000 - ₹20,000',
+                    sizes: ['600-700 sq ft'],
+                    amenities: ['Modular Kitchen', 'AC', 'Balcony', '24/7 Security'],
+                    image: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
+                },
+                '2bhk': {
+                    name: '2 BHK Apartment',
+                    price: '₹25,000 - ₹40,000',
+                    sizes: ['Compact: 900-1000 sq ft', 'Regular: 1000-1200 sq ft', 'Large: 1200-1400 sq ft'],
+                    amenities: ['Modular Kitchen', 'AC', 'Balcony', '24/7 Security', 'Power Backup'],
+                    image: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
+                },
+                '3bhk': {
+                    name: '3 BHK Apartment',
+                    price: '₹35,000 - ₹50,000',
+                    sizes: ['1400-1800 sq ft'],
+                    amenities: ['Modular Kitchen', 'AC', 'Multiple Balconies', '24/7 Security', 'Power Backup', 'Premium Fittings'],
+                    image: 'https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
+                },
+                'villa': {
+                    name: 'Luxury Villa',
+                    price: '₹70,000 - ₹1,00,000',
+                    sizes: ['2500-4000 sq ft'],
+                    amenities: ['Private Garden', 'Modular Kitchen', 'AC', 'Multiple Balconies', '24/7 Security', 'Power Backup', 'Premium Fittings', 'Private Parking'],
+                    image: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
+                }
+            };
+            
+            // Chatbot responses
+            const botResponses = {
+                greetings: [
+                    "Hello! Welcome to MVK Realtors. How can I assist you today?",
+                    "Hi there! I'm your MVK Realtors assistant. What kind of property are you looking for?",
+                    "Welcome to MVK Realtors! I'm here to help you find your perfect home. What can I help you with?"
+                ],
+                propertyTypes: "We offer various types of rental properties including 1 BHK apartments, 2 BHK apartments, 3 BHK apartments, and luxury villas. Which one are you interested in?",
+                location: "Our properties are located in prime areas of the city with excellent connectivity to major business hubs, educational institutions, and healthcare facilities. Would you like to know about a specific location?",
+                booking: "You can book a property viewing by filling out the form in our 'Book a Viewing' section. Would you like me to guide you there?",
+                contact: "You can reach us at +91 6369591941 or email us at info@mvkrealtors.com. Would you like me to help you with anything else?",
+                fallback: [
+                    "I'm not sure I understand. Could you please rephrase your question?",
+                    "I didn't quite catch that. Can you please be more specific?",
+                    "I'm still learning! Could you try asking in a different way?"
+                ]
+            };
+            
+            // Autonomous messages to initiate conversation
+            const autonomousMessages = [
+                "Looking for a new home? I can help you find the perfect rental property!",
+                "Did you know we have special offers on 2 BHK apartments this month?",
+                "Would you like to see our featured properties?"
+            ];
+            
+            // Toggle chatbot window
+            chatbotButton.addEventListener('click', () => {
+                chatbotWindow.classList.toggle('active');
+                if (chatbotWindow.classList.contains('active')) {
+                    notificationBadge.classList.remove('active');
+                    chatInput.focus();
+                }
+            });
+            
+            // Close chatbot window
+            closeChat.addEventListener('click', () => {
+                chatbotWindow.classList.remove('active');
+            });
+            
+            // Send message function
+            function sendMessage() {
+                const message = chatInput.value.trim();
+                if (message === '') return;
+                
+                // Add user message to chat
+                addMessage(message, 'user');
+                chatInput.value = '';
+                
+                // Show typing indicator
+                showTypingIndicator();
+                
+                // Process user message and get bot response after a delay
+                setTimeout(() => {
+                    const botResponse = processUserMessage(message);
+                    removeTypingIndicator();
+                    addMessage(botResponse.text, 'bot', botResponse.image);
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }, 1000 + Math.random() * 1000); // Random delay between 1-2 seconds
+            }
+            
+            // Process user message and generate response
+            function processUserMessage(message) {
+                message = message.toLowerCase();
+                let response = { text: '', image: null };
+                
+                // Check for property type inquiries
+                if (message.includes('1bhk') || message.includes('1 bhk') || message.includes('1 bedroom')) {
+                    response.text = `Our 1 BHK apartments are priced between ${propertyData['1bhk'].price} and come with ${propertyData['1bhk'].amenities.join(', ')}. Would you like to see an image?`;
+                    response.image = propertyData['1bhk'].image;
+                }
+                else if (message.includes('2bhk') || message.includes('2 bhk') || message.includes('2 bedroom')) {
+                    response.text = `Our 2 BHK apartments are available in different sizes: ${propertyData['2bhk'].sizes.join(', ')}. Prices range from ${propertyData['2bhk'].price} depending on size and furnishing. Would you like to know more?`;
+                    response.image = propertyData['2bhk'].image;
+                }
+                else if (message.includes('3bhk') || message.includes('3 bhk') || message.includes('3 bedroom')) {
+                    response.text = `Our spacious 3 BHK apartments are priced between ${propertyData['3bhk'].price} and feature ${propertyData['3bhk'].amenities.join(', ')}. Would you like to see an image?`;
+                    response.image = propertyData['3bhk'].image;
+                }
+                else if (message.includes('villa') || message.includes('luxury')) {
+                    response.text = `Our luxury villas are premium properties priced between ${propertyData['villa'].price}. They come with ${propertyData['villa'].amenities.join(', ')}. Would you like to see an image?`;
+                    response.image = propertyData['villa'].image;
+                }
+                // Check for general inquiries
+                else if (message.includes('property') || message.includes('home') || message.includes('apartment') || message.includes('flat')) {
+                    response.text = botResponses.propertyTypes;
+                }
+                else if (message.includes('location') || message.includes('where') || message.includes('area')) {
+                    response.text = botResponses.location;
+                }
+                else if (message.includes('book') || message.includes('viewing') || message.includes('visit')) {
+                    response.text = botResponses.booking;
+                }
+                else if (message.includes('contact') || message.includes('phone') || message.includes('email') || message.includes('call')) {
+                    response.text = botResponses.contact;
+                }
+                else if (message.includes('hello') || message.includes('hi') || message.includes('hey') || message.includes('greetings')) {
+                    response.text = botResponses.greetings[Math.floor(Math.random() * botResponses.greetings.length)];
+                }
+                else {
+                    response.text = botResponses.fallback[Math.floor(Math.random() * botResponses.fallback.length)];
+                }
+                
+                return response;
+            }
+            
+            // Add message to chat
+            function addMessage(text, sender, image = null) {
+                const messageElement = document.createElement('div');
+                messageElement.classList.add('message', `${sender}-message`);
+                messageElement.textContent = text;
+                
+                // Add image if provided
+                if (image) {
+                    const imageElement = document.createElement('img');
+                    imageElement.src = image;
+                    imageElement.alt = 'Property Image';
+                    imageElement.classList.add('message-image');
+                    messageElement.appendChild(imageElement);
+                }
+                
+                chatMessages.appendChild(messageElement);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+            
+            // Show typing indicator
+            function showTypingIndicator() {
+                const typingIndicator = document.createElement('div');
+                typingIndicator.classList.add('typing-indicator');
+                typingIndicator.innerHTML = `
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                `;
+                chatMessages.appendChild(typingIndicator);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+            
+            // Remove typing indicator
+            function removeTypingIndicator() {
+                const typingIndicator = document.querySelector('.typing-indicator');
+                if (typingIndicator) {
+                    typingIndicator.remove();
+                }
+            }
+            
+            // Send message on button click
+            sendButton.addEventListener('click', sendMessage);
+            
+            // Send message on Enter key
+            chatInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+            
+            // Initialize chatbot with welcome message
+            setTimeout(() => {
+                addMessage(botResponses.greetings[0], 'bot');
+            }, 500);
+            
+            // Autonomous chatbot behavior
+            let lastAutonomousMessage = Date.now();
+            const autonomousMessageInterval = 5 * 60 * 1000; // 5 minutes
+            
+            // Check if it's time to send an autonomous message
+            function checkAutonomousMessage() {
+                const now = Date.now();
+                if (now - lastAutonomousMessage >= autonomousMessageInterval && !chatbotWindow.classList.contains('active')) {
+                    // Show notification badge with number 1
+                    notificationBadge.classList.add('active');
+                    
+                    // Update last message time
+                    lastAutonomousMessage = now;
+                    
+                    // Store the message to show when chat is opened
+                    const randomMessage = autonomousMessages[Math.floor(Math.random() * autonomousMessages.length)];
+                    localStorage.setItem('pendingBotMessage', randomMessage);
+                }
+            }
+            
+            // Check for autonomous messages every minute
+            setInterval(checkAutonomousMessage, 60 * 1000);
+            
+            // Show pending message when chat is opened
+            chatbotWindow.addEventListener('transitionend', function() {
+                if (chatbotWindow.classList.contains('active')) {
+                    const pendingMessage = localStorage.getItem('pendingBotMessage');
+                    if (pendingMessage) {
+                        setTimeout(() => {
+                            addMessage(pendingMessage, 'bot');
+                            localStorage.removeItem('pendingBotMessage');
+                        }, 500);
+                    }
+                }
+            });
+            
+            // Trigger first autonomous message after 30 seconds
+            setTimeout(() => {
+                notificationBadge.classList.add('active');
+                localStorage.setItem('pendingBotMessage', autonomousMessages[0]);
+            }, 30 * 1000);
+        });
+    </script>
+    <!-- WhatsApp Form Integration Script -->    
+    <script>
+        // WhatsApp Form Integration
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contact-form');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    
+                    // Get form data
+                    const name = document.getElementById('contact-name').value;
+                    const email = document.getElementById('contact-email').value;
+                    const phone = document.getElementById('contact-phone').value;
+                    const message = document.getElementById('contact-message').value;
+                    
+                    // Format the message for WhatsApp
+                    const whatsappMessage = 
+                        `*New Contact Form Submission*%0A%0A` +
+                        `*Name:* ${name}%0A` +
+                        `*Email:* ${email}%0A` +
+                        `*Phone:* ${phone}%0A%0A` +
+                        `*Message:*%0A${message}`;
+                    
+                    // Your WhatsApp number - replace with your actual number
+                    const whatsappNumber = '6369591941'; // Use your business WhatsApp number
+                    
+                    // Create WhatsApp URL
+                    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+                    
+                    // Open WhatsApp in a new tab
+                    window.open(whatsappUrl, '_blank');
+                    
+                    // Optional: Reset the form
+                    contactForm.reset();
+                    
+                    // Optional: Show success message
+                    showSuccessMessage('Message sent via WhatsApp!');
+                });
+            }
+            
+            // Function to show success message
+            function showSuccessMessage(message) {
+                // Check if success message element exists
+                let successMessage = document.querySelector('.success-message');
+                
+                if (!successMessage) {
+                    // Create success message element if it doesn't exist
+                    successMessage = document.createElement('div');
+                    successMessage.className = 'success-message';
+                    successMessage.innerHTML = `
+                        <i class="fas fa-check-circle"></i>
+                        <h3>Success!</h3>
+                        <p>${message}</p>
+                        <button class="btn" onclick="this.parentElement.style.display='none'; document.querySelector('.overlay').style.display='none';">Close</button>
+                    `;
+                    document.body.appendChild(successMessage);
+                    
+                    // Create overlay if it doesn't exist
+                    let overlay = document.querySelector('.overlay');
+                    if (!overlay) {
+                        overlay = document.createElement('div');
+                        overlay.className = 'overlay';
+                        document.body.appendChild(overlay);
+                    }
+                    
+                    overlay.style.display = 'block';
+                } else {
+                    // Update existing success message
+                    const messageElement = successMessage.querySelector('p');
+                    if (messageElement) {
+                        messageElement.textContent = message;
+                    }
+                }
+                
+                // Show the success message
+                successMessage.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
