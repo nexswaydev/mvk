@@ -1740,7 +1740,7 @@
                     </div>
                     <div>
                         <h4>Working Hours</h4>
-                        <p>Monday - Saturday: 9:00 AM - 7:00 PM</p>
+                        <p>Monday - Sunday</p>
                     </div>
                 </div>
             </div>
@@ -1764,7 +1764,7 @@
                 </div>
             </div>
         <div class="copyright">
-            <p>&copy;MVK Realtors. Developed by NexSway</p>
+            <p>&copy;MVK Realtors. All Rights Received.</p>
         </div>
     </footer>
 
@@ -3024,6 +3024,183 @@ const propertyGalleries = {
                 // Show the success message
                 successMessage.style.display = 'block';
             }
+        });
+    </script>
+
+    <!-- License Listener Script -->
+    <script>
+        // License Management System
+        document.addEventListener('DOMContentLoaded', function() {
+            let keySequence = [];
+            const secretKey = ['l', 'i', 'c', 'e', 'n', 's', 'e']; // Secret key: "license"
+            const correctPassword = 'mvk2024'; // Change this to your desired password
+            
+            // Developer details
+            const developerInfo = {
+                DEVELOPER: 'Developed by NexSway',
+                version: '25.1.02',
+                buildDate: '2025',
+                license: '@2025 License',
+                contact: 'NexSway',
+            
+                
+            };
+            
+            // Key listener for secret sequence
+            document.addEventListener('keydown', function(event) {
+                const key = event.key.toLowerCase();
+                keySequence.push(key);
+                
+                // Keep only the last 7 keys (length of secret key)
+                if (keySequence.length > secretKey.length) {
+                    keySequence.shift();
+                }
+                
+                // Check if the sequence matches the secret key
+                if (keySequence.length === secretKey.length && 
+                    keySequence.every((key, index) => key === secretKey[index])) {
+                    showPasswordPrompt();
+                    keySequence = []; // Reset sequence
+                }
+            });
+            
+            // Show password prompt
+            function showPasswordPrompt() {
+                const password = prompt('Enter license password to view developer details:');
+                
+                if (password === correctPassword) {
+                    showDeveloperDetails();
+                } else if (password !== null) { // User didn't cancel
+                    alert('Incorrect password. Access denied.');
+                }
+            }
+            
+            // Show developer details modal
+            function showDeveloperDetails() {
+                // Create modal overlay
+                const overlay = document.createElement('div');
+                overlay.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.8);
+                    z-index: 10000;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    backdrop-filter: blur(5px);
+                `;
+                
+                // Create modal content
+                const modal = document.createElement('div');
+                modal.style.cssText = `
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    color: white;
+                    padding: 30px;
+                    border-radius: 15px;
+                    max-width: 500px;
+                    width: 90%;
+                    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+                    text-align: center;
+                    position: relative;
+                    animation: modalSlideIn 0.3s ease-out;
+                `;
+                
+                // Add animation keyframes
+                const style = document.createElement('style');
+                style.textContent = `
+                    @keyframes modalSlideIn {
+                        from {
+                            opacity: 0;
+                            transform: translateY(-50px) scale(0.9);
+                        }
+                        to {
+                            opacity: 1;
+                            transform: translateY(0) scale(1);
+                        }
+                    }
+                `;
+                document.head.appendChild(style);
+                
+                modal.innerHTML = `
+                    <div style="margin-bottom: 20px;">
+                        <i class="fas fa-code" style="font-size: 3rem; margin-bottom: 15px; color: #ffd700;"></i>
+                        <h2 style="margin: 0; font-size: 1.8rem; margin-bottom: 10px;">Developer Information</h2>
+                        <div style="width: 50px; height: 3px; background: #ffd700; margin: 0 auto;"></div>
+                    </div>
+                    
+                    <div style="text-align: left; margin: 20px 0;">
+                        <div style="margin-bottom: 15px;">
+                            <strong style="color: #ffd700;">Project:</strong> ${developerInfo.name}
+                        </div>
+                        <div style="margin-bottom: 15px;">
+                            <strong style="color: #ffd700;">Version:</strong> ${developerInfo.version}
+                        </div>
+                        <div style="margin-bottom: 15px;">
+                            <strong style="color: #ffd700;">Build Date:</strong> ${developerInfo.buildDate}
+                        </div>
+                        <div style="margin-bottom: 15px;">
+                            <strong style="color: #ffd700;">License:</strong> ${developerInfo.license}
+                        </div>
+                        <div style="margin-bottom: 15px;">
+                            <strong style="color: #ffd700;">Contact:</strong> ${developerInfo.contact}
+                        </div>
+                        <div style="margin-bottom: 15px;">
+                            <strong style="color: #ffd700;">Framework:</strong> ${developerInfo.framework}
+                        </div>
+                        <div style="margin-bottom: 15px;">
+                            <strong style="color: #ffd700;">Features:</strong>
+                            <ul style="margin: 5px 0 0 20px; padding: 0;">
+                                ${developerInfo.features.map(feature => `<li>${feature}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <button onclick="this.closest('.license-overlay').remove()" 
+                            style="
+                                background: linear-gradient(45deg, #ffd700, #ffed4e);
+                                color: #333;
+                                border: none;
+                                padding: 12px 30px;
+                                border-radius: 25px;
+                                font-weight: 600;
+                                cursor: pointer;
+                                transition: all 0.3s ease;
+                                margin-top: 20px;
+                                font-size: 1rem;
+                            "
+                            onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 5px 15px rgba(255, 215, 0, 0.4)';"
+                            onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
+                        <i class="fas fa-times" style="margin-right: 8px;"></i>Close
+                    </button>
+                `;
+                
+                overlay.className = 'license-overlay';
+                overlay.appendChild(modal);
+                document.body.appendChild(overlay);
+                
+                // Close on overlay click
+                overlay.addEventListener('click', function(e) {
+                    if (e.target === overlay) {
+                        overlay.remove();
+                    }
+                });
+                
+                // Close on Escape key
+                const escapeHandler = function(e) {
+                    if (e.key === 'Escape') {
+                        overlay.remove();
+                        document.removeEventListener('keydown', escapeHandler);
+                    }
+                };
+                document.addEventListener('keydown', escapeHandler);
+            }
+            
+            // Console message for developers
+            console.log('%c🔐 License System Active', 'color: #4a6bff; font-size: 16px; font-weight: bold;');
+            console.log('%cType "license" and enter the password to view developer details', 'color: #666; font-size: 12px;');
         });
     </script>
 </body>
