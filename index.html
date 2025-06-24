@@ -3036,14 +3036,14 @@ const propertyGalleries = {
             const correctPassword = 'mvk2024'; // Change this to your desired password
             
             // Developer details
-            const developerInfo = {
-                DEVELOPER: 'Developed by NexSway',
+            const developerDetails = {
+                name: 'MVK Realtors - Developed by NexSway',
                 version: '25.1.02',
                 buildDate: '2025',
                 license: '@2025 License',
                 contact: 'NexSway',
-            
-                
+                framework: 'Vanilla HTML/CSS/JavaScript',
+                features: ['Responsive Design', 'Interactive Chatbot', 'WhatsApp Integration', 'Property Gallery', 'License Management System']
             };
             
             // Key listener for secret sequence
@@ -3133,27 +3133,27 @@ const propertyGalleries = {
                     
                     <div style="text-align: left; margin: 20px 0;">
                         <div style="margin-bottom: 15px;">
-                            <strong style="color: #ffd700;">Project:</strong> ${developerInfo.name}
+                            <strong style="color: #ffd700;">Project:</strong> ${developerDetails.name}
                         </div>
                         <div style="margin-bottom: 15px;">
-                            <strong style="color: #ffd700;">Version:</strong> ${developerInfo.version}
+                            <strong style="color: #ffd700;">Version:</strong> ${developerDetails.version}
                         </div>
                         <div style="margin-bottom: 15px;">
-                            <strong style="color: #ffd700;">Build Date:</strong> ${developerInfo.buildDate}
+                            <strong style="color: #ffd700;">Build Date:</strong> ${developerDetails.buildDate}
                         </div>
                         <div style="margin-bottom: 15px;">
-                            <strong style="color: #ffd700;">License:</strong> ${developerInfo.license}
+                            <strong style="color: #ffd700;">License:</strong> ${developerDetails.license}
                         </div>
                         <div style="margin-bottom: 15px;">
-                            <strong style="color: #ffd700;">Contact:</strong> ${developerInfo.contact}
+                            <strong style="color: #ffd700;">Contact:</strong> ${developerDetails.contact}
                         </div>
                         <div style="margin-bottom: 15px;">
-                            <strong style="color: #ffd700;">Framework:</strong> ${developerInfo.framework}
+                            <strong style="color: #ffd700;">Framework:</strong> ${developerDetails.framework}
                         </div>
                         <div style="margin-bottom: 15px;">
                             <strong style="color: #ffd700;">Features:</strong>
                             <ul style="margin: 5px 0 0 20px; padding: 0;">
-                                ${developerInfo.features.map(feature => `<li>${feature}</li>`).join('')}
+                                ${developerDetails.features.map(feature => `<li>${feature}</li>`).join('')}
                             </ul>
                         </div>
                     </div>
